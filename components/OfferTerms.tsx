@@ -9,7 +9,7 @@ export function OfferTerms() {
   const faqs = [
     {
       q: "Where is this voucher valid?",
-      a: "This voucher is exclusively valid for dine-in and direct takeaway orders at Morrow Café, Sector 104, Noida.",
+      a: "This voucher is exclusively valid for dine-in and direct takeaway orders at Morrow Cafe, Sector 104, Noida.",
     },
     {
       q: "Is there a minimum order value?",
@@ -57,13 +57,12 @@ export function OfferTerms() {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between p-4 sm:p-5 text-left text-sm font-semibold text-[#1F1A17] hover:bg-[#FAF7F2] transition"
+                  className="flex w-full cursor-pointer items-center justify-between p-4 sm:p-5 text-left text-sm font-semibold text-[#1F1A17] hover:bg-[#FAF7F2] transition"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`h-4 w-4 shrink-0 text-[#7A6956] transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-[#D96B27]" : ""
-                    }`}
+                    className={`h-4 w-4 shrink-0 text-[#7A6956] transition-transform duration-200 ${isOpen ? "rotate-180 text-[#D96B27]" : ""
+                      }`}
                   />
                 </button>
                 {isOpen && (

@@ -12,7 +12,7 @@ export function Footer() {
             </div>
             <div>
               <span className="font-serif text-lg font-bold tracking-tight">
-                Morrow Café
+                Morrow Cafe
               </span>
               <p className="text-xs text-[#A8957F]">
                 Sector 104, Noida, UP • Artisanal Roastery
@@ -21,7 +21,7 @@ export function Footer() {
           </div>
 
           <p className="text-xs text-[#A8957F] text-center sm:text-right">
-            © {new Date().getFullYear()} Morrow Café. Campaign landing experience.
+            © {new Date().getFullYear()} Morrow Cafe. Campaign landing experience.
           </p>
         </div>
       </div>

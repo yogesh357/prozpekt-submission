@@ -1,6 +1,6 @@
-# Morrow Café — In-Store Campaign Experience
+# Morrow Cafe — In-Store Campaign Experience
 
-A mobile-first, high-converting campaign landing experience built for **Morrow Café** (Sector 104, Noida). When customers scan a QR code inside the café, they land on a fast, clear, and tactile digital voucher experience to claim **₹150 OFF** their visit.
+A mobile-first, high-converting campaign landing experience built for **Morrow Cafe** (Sector 104, Noida). When customers scan a QR code inside the Cafe, they land on a fast, clear, and tactile digital voucher experience to claim **₹150 OFF** their visit.
 
 ---
 
@@ -93,13 +93,13 @@ bun run start
 
 **Strategy**:
 On a standard mobile screen (390px viewport), the above-the-fold view displays:
-1. **Café Identity & Location Badge**: "Morrow Café • Sector 104, Noida" (immediate reassurance that the scan worked).
+1. **Cafe Identity & Location Badge**: "Morrow Cafe • Sector 104, Noida" (immediate reassurance that the scan worked).
 2. **Primary Offer Headline**: "Get ₹150 OFF your next visit" with the instant value proposition.
 3. **Primary CTA Button**: "Claim ₹150 OFF" with an instant jump to the form.
 4. **Key Trust Pills**: "10-Sec Claim • Valid for 14 Days • No OTP Needed".
 
 **Rationale**:
-In-café QR scans suffer from high bounce rates if the user is forced to read dense paragraphs or guess the purpose. By showing the location, exact discount value, and a 10-second promise above the fold, the user is immediately motivated to take action without cognitive fatigue.
+In-Cafe QR scans suffer from high bounce rates if the user is forced to read dense paragraphs or guess the purpose. By showing the location, exact discount value, and a 10-second promise above the fold, the user is immediately motivated to take action without cognitive fatigue.
 
 ---
 
@@ -111,7 +111,7 @@ In-café QR scans suffer from high bounce rates if the user is forced to read de
    - **Cloudflare Turnstile**: Integrate zero-friction invisible challenge (CAPTCHA-free) to verify genuine human mobile traffic without adding friction to the ordering experience.
 2. **Duplicate Claims from Same Phone Number**:
    - **Idempotent Voucher Retrieval**: Store unique normalized phone hashes (e.g. SHA-256 + salt) in Redis/PostgreSQL with a unique constraint. If a customer enters their number a second time, return their existing active voucher rather than creating duplicate discount codes.
-   - **POS Redemption Sync**: Mark the voucher code as `REDEEMED` in the café’s POS or database upon checkout to prevent re-use of the same code.
+   - **POS Redemption Sync**: Mark the voucher code as `REDEEMED` in the Cafe’s POS or database upon checkout to prevent re-use of the same code.
 3. **Endpoint Rate Limiting & Resilience**:
    - **Token Bucket / IP Sliding Window**: Use Redis via Upstash or Cloudflare Workers rate limiting (e.g., maximum 5 requests per minute per IP) to block brute-force voucher generation scripts.
    - **Circuit Breaker**: If downstream services experience latency spikes, gracefully fallback to signed JWT voucher tokens that can be verified offline at the billing counter.

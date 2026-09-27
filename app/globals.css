@@ -24,6 +24,20 @@
   --color-espresso-950: #14100D;
 }
 
+/* Global cursor pointer reset for all buttons & interactive elements */
+button,
+[role="button"],
+a,
+summary,
+select {
+  cursor: pointer;
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
 /* Custom Utilities */
 .font-serif-display {
   font-family: var(--font-serif);
@@ -35,8 +49,48 @@
 
 /* Noise overlay for premium tactile feel */
 .bg-grain {
-  background-image: radial-gradient(rgba(31, 26, 23, 0.04) 1px, transparent 0);
-  background-size: 16px 16px;
+  background-image: radial-gradient(rgba(31, 26, 23, 0.05) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+/* Subtle entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Ticket perforated edges */
@@ -70,22 +124,6 @@
   background-color: #FAF7F2;
   border-radius: 50%;
   box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.06);
-}
-
-/* Subtle glowing pulse */
-@keyframes soft-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.02);
-    opacity: 1;
-  }
-}
-
-.animate-soft-pulse {
-  animation: soft-pulse 4s ease-in-out infinite;
 }
 
 /* Focus outline accessibility */

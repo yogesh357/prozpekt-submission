@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
 
-// In-memory store for session / demo claim persistence
-// In production, this would be backed by PostgreSQL / Redis / DynamoDB
 const claimedPhones = new Map<
   string,
   { claimCode: string; name: string; claimedAt: string }
 >();
 
-// Utility to generate unique, legible voucher codes (excluding ambiguous chars: 0, O, 1, I, L)
+// tp generate coupon code
 function generateClaimCode(): string {
   const chars = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
   let code = "";
@@ -18,7 +16,7 @@ function generateClaimCode(): string {
   return `MORROW-${code}`;
 }
 
-// Indian mobile phone regex: 10 digits starting with 6, 7, 8, 9
+
 const PHONE_REGEX = /^[6-9]\d{9}$/;
 
 // Obvious dummy repetitive phone numbers to reject
@@ -34,13 +32,12 @@ const INVALID_PATTERNS = [
   "8888888888",
   "9999999999",
   "1234567890",
-  "9876543210", // Allow or flag; in real world, 9876543210 is demo, but let's allow or treat gracefully
+  "9876543210",
 ];
 
 export async function POST(request: Request) {
   try {
-    // Artificial small delay for authentic loading feedback
-    await new Promise((resolve) => setTimeout(resolve, 450));
+    await new Promise((resolve) => setTimeout(resolve, 300));
 
     let body: any;
     try {
@@ -78,7 +75,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Sanitize phone number (strip whitespace, hyphens, and +91 country prefix if present)
+    // Sanitize phone number
     let sanitizedPhone = typeof phone === "string" ? phone.trim().replace(/[\s\-()]/g, "") : "";
     if (sanitizedPhone.startsWith("+91")) {
       sanitizedPhone = sanitizedPhone.slice(3);

@@ -26,9 +26,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://morrow-cafe.vercel.app"),
-  title: "Claim ₹150 OFF | Morrow Café — Sector 104, Noida",
+  title: "Claim ₹150 OFF | Morrow Cafe — Sector 104, Noida",
   description:
-    "Exclusive in-café offer for Morrow Café visitors. Claim ₹150 OFF your next visit on handcrafted brews, artisanal sourdough, and seasonal kitchen plates.",
+    "Exclusive in-Cafe offer for Morrow Cafe visitors. Claim ₹150 OFF your next visit on handcrafted brews, artisanal sourdough, and seasonal kitchen plates.",
   keywords: [
     "Morrow Cafe",
     "Morrow Cafe Noida",
@@ -37,19 +37,19 @@ export const metadata: Metadata = {
     "Morrow Cafe discount",
     "Cafe voucher Noida",
   ],
-  authors: [{ name: "Morrow Café" }],
+  authors: [{ name: "Morrow Cafe" }],
   openGraph: {
-    title: "Claim ₹150 OFF | Morrow Café — Sector 104, Noida",
+    title: "Claim ₹150 OFF | Morrow Cafe — Sector 104, Noida",
     description:
-      "Exclusive in-café offer for Morrow Café visitors. Claim ₹150 OFF your next visit in seconds.",
+      "Exclusive in-Cafe offer for Morrow Cafe visitors. Claim ₹150 OFF your next visit in seconds.",
     url: "https://morrow-cafe.vercel.app",
-    siteName: "Morrow Café",
+    siteName: "Morrow Cafe",
     images: [
       {
         url: "/images/morrow-hero.webp",
         width: 1200,
         height: 630,
-        alt: "Morrow Café Ambiance & Coffee",
+        alt: "Morrow Cafe Ambiance & Coffee",
       },
     ],
     locale: "en_IN",
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Claim ₹150 OFF | Morrow Café — Sector 104, Noida",
+    title: "Claim ₹150 OFF | Morrow Cafe — Sector 104, Noida",
     description:
-      "Exclusive in-café offer for Morrow Café visitors. Claim ₹150 OFF your next visit.",
+      "Exclusive in-Cafe offer for Morrow Cafe visitors. Claim ₹150 OFF your next visit.",
     images: ["/images/morrow-hero.webp"],
   },
   robots: {

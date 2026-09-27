@@ -65,8 +65,8 @@ export function ClaimModule() {
       ? rawCleanPhone.length === 0
         ? "Phone number is required."
         : rawCleanPhone.length < 10
-        ? `Enter 10 digits (${10 - rawCleanPhone.length} more needed)`
-        : "Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9."
+          ? `Enter 10 digits (${10 - rawCleanPhone.length} more needed)`
+          : "Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9."
       : null;
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -147,7 +147,7 @@ export function ClaimModule() {
         setStatus("error");
         setErrorMessage(
           data.message ||
-            "Unable to generate your voucher pass. Please check your details and try again."
+          "Unable to generate your voucher pass. Please check your details and try again."
         );
       }
     } catch {
@@ -211,20 +211,20 @@ export function ClaimModule() {
         <div className="relative overflow-hidden rounded-3xl border border-[#E7DDD0] bg-white p-6 shadow-xl sm:p-8">
           {/* SUCCESS STATE: VOUCHER PASS */}
           {status === "success" && claimData && (
-            <div className="space-y-6" role="region" aria-label="Generated Voucher">
+            <div className="space-y-6 animate-fade-in-scale" role="region" aria-label="Generated Voucher">
               {/* Voucher Ticket UI */}
               <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-[#D96B27]/40 bg-[#FAF7F2] p-5 sm:p-6 shadow-inner">
                 {/* Header of pass */}
                 <div className="flex items-start justify-between border-b border-[#E7DDD0] pb-4">
                   <div>
                     <span className="text-[11px] font-bold tracking-wider text-[#D96B27] uppercase">
-                      In-Café Perk
+                      In-Cafe Perk
                     </span>
                     <h3 className="font-serif text-xl font-bold text-[#1F1A17] sm:text-2xl">
                       ₹150 OFF Total Bill
                     </h3>
                     <p className="text-xs text-[#7A6956]">
-                      Morrow Café • Sector 104, Noida
+                      Morrow Cafe • Sector 104, Noida
                     </p>
                   </div>
                   <div className="rounded-full bg-[#1F1A17] px-3 py-1 text-[11px] font-semibold text-[#FAF7F2]">
@@ -250,7 +250,7 @@ export function ClaimModule() {
                   <div className="mt-3 flex justify-center">
                     <button
                       onClick={copyClaimCode}
-                      className="inline-flex items-center gap-2 rounded-xl bg-[#1F1A17] px-4 py-2 text-xs font-semibold text-[#FAF7F2] transition hover:bg-[#332A22] active:scale-95 focus:ring-2 focus:ring-[#D96B27]"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-[#1F1A17] px-4 py-2 text-xs font-semibold text-[#FAF7F2] transition hover:bg-[#332A22] active:scale-95 focus:ring-2 focus:ring-[#D96B27]"
                       aria-label="Copy voucher code to clipboard"
                     >
                       {copied ? (
@@ -304,15 +304,15 @@ export function ClaimModule() {
                   href="https://maps.google.com/?q=Sector+104+Noida"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-[#E7DDD0] bg-[#FAF7F2] py-3 text-xs font-semibold text-[#1F1A17] transition hover:bg-[#F3ECE1]"
+                  className="flex-1 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-[#E7DDD0] bg-[#FAF7F2] py-3 text-xs font-semibold text-[#1F1A17] transition hover:bg-[#F3ECE1]"
                 >
                   <MapPin className="h-3.5 w-3.5 text-[#D96B27]" />
-                  <span>Get Directions to Café</span>
+                  <span>Get Directions to Cafe</span>
                 </a>
 
                 <button
                   onClick={resetForm}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-transparent px-4 py-3 text-xs font-medium text-[#7A6956] transition hover:text-[#1F1A17] hover:bg-[#FAF7F2]"
+                  className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-transparent px-4 py-3 text-xs font-medium text-[#7A6956] transition hover:text-[#1F1A17] hover:bg-[#FAF7F2]"
                 >
                   <RotateCcw className="h-3.5 w-3.5" />
                   <span>Claim another</span>
@@ -327,14 +327,14 @@ export function ClaimModule() {
               ref={formRef}
               onSubmit={handleSubmit}
               noValidate
-              className="space-y-5"
+              className="space-y-5 animate-fade-in-up"
               aria-label="Claim offer form"
             >
               {/* Error Banner */}
               {status === "error" && (
                 <div
                   role="alert"
-                  className="flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-xs sm:text-sm text-red-900"
+                  className="flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-xs sm:text-sm text-red-900 animate-fade-in-scale"
                 >
                   <AlertCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
                   <div>
@@ -366,11 +366,10 @@ export function ClaimModule() {
                     disabled={status === "loading"}
                     aria-invalid={!!nameError}
                     aria-describedby={nameError ? "name-error" : undefined}
-                    className={`w-full rounded-xl border bg-[#FAF7F2] px-4 py-3.5 text-sm text-[#1F1A17] placeholder:text-[#A8957F] transition outline-hidden focus:bg-white ${
-                      nameError
+                    className={`w-full rounded-xl border bg-[#FAF7F2] px-4 py-3.5 text-sm text-[#1F1A17] placeholder:text-[#A8957F] transition outline-hidden focus:bg-white ${nameError
                         ? "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                         : "border-[#E7DDD0] focus:border-[#1F1A17] focus:ring-2 focus:ring-[#1F1A17]/10"
-                    }`}
+                      }`}
                   />
                 </div>
                 {nameError && (
@@ -411,11 +410,10 @@ export function ClaimModule() {
                     disabled={status === "loading"}
                     aria-invalid={!!phoneError}
                     aria-describedby={phoneError ? "phone-error" : undefined}
-                    className={`w-full rounded-xl border bg-[#FAF7F2] pl-14 pr-4 py-3.5 text-sm text-[#1F1A17] placeholder:text-[#A8957F] transition outline-hidden focus:bg-white font-medium ${
-                      phoneError
+                    className={`w-full rounded-xl border bg-[#FAF7F2] pl-14 pr-4 py-3.5 text-sm text-[#1F1A17] placeholder:text-[#A8957F] transition outline-hidden focus:bg-white font-medium ${phoneError
                         ? "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                         : "border-[#E7DDD0] focus:border-[#1F1A17] focus:ring-2 focus:ring-[#1F1A17]/10"
-                    }`}
+                      }`}
                   />
                 </div>
                 {phoneError ? (
@@ -439,7 +437,7 @@ export function ClaimModule() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="group relative flex w-full items-center justify-center gap-2 rounded-2xl bg-[#1F1A17] py-4 text-sm sm:text-base font-semibold text-[#FAF7F2] shadow-md transition-all hover:bg-[#332A22] hover:shadow-lg active:scale-[0.99] disabled:opacity-75 disabled:cursor-not-allowed focus:ring-4 focus:ring-[#D96B27]/30"
+                  className="group relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-[#1F1A17] py-4 text-sm sm:text-base font-semibold text-[#FAF7F2] shadow-md transition-all hover:bg-[#332A22] hover:shadow-lg active:scale-[0.99] disabled:opacity-75 disabled:cursor-not-allowed focus:ring-4 focus:ring-[#D96B27]/30"
                 >
                   {status === "loading" ? (
                     <>

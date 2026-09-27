@@ -38,7 +38,7 @@ export function AtmosphereSection() {
             More than just coffee.
           </h2>
           <p className="mt-3 text-sm text-[#554739] sm:text-base leading-relaxed">
-            Morrow Café was designed as a slow-living haven in the heart of Sector 104, Noida. Every pour-over is weighed, every pastry proofed with care.
+            Morrow Cafe was designed as a slow-living haven in the heart of Sector 104, Noida. Every pour-over is weighed, every pastry proofed with care.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export function AtmosphereSection() {
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl sm:aspect-3/2">
               <Image
                 src="/images/morrow-detail.webp"
-                alt="Detailed pour of specialty coffee at Morrow Café"
+                alt="Detailed pour of specialty coffee at Morrow Cafe"
                 fill
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, 500px"
@@ -71,7 +71,7 @@ export function AtmosphereSection() {
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl sm:aspect-3/2">
               <Image
                 src="/images/morrow-hero.webp"
-                alt="Calm dining space and coffee counter at Morrow Café"
+                alt="Calm dining space and coffee counter at Morrow Cafe"
                 fill
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, 500px"
