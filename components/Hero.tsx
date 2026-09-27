@@ -33,7 +33,7 @@ export function Hero({ onOpenClaim }: HeroProps) {
 
             {/* Editorial Headline */}
             <div>
-              <h1 className="font-serif text-4xl leading-[1.12] font-semibold tracking-tight text-warm-900 sm:text-5xl sm:leading-[1.1] md:text-6xl">
+              <h1 className="font-serif text-3xl leading-[1.12] font-semibold tracking-tight text-warm-900 sm:text-5xl sm:leading-[1.1] md:text-6xl">
                 Get <span className="text-terracotta-500 underline decoration-warm-300 decoration-wavy decoration-2 underline-offset-6">₹150 OFF</span> your next visit.
               </h1>
               <p className="mt-4 text-base leading-relaxed text-warm-700 sm:text-lg">
@@ -42,35 +42,35 @@ export function Hero({ onOpenClaim }: HeroProps) {
             </div>
 
             {/* Instant Feature Pills */}
-            <div className="grid grid-cols-3 gap-2.5 pt-1 text-xs text-warm-700">
-              <div className="flex flex-col items-start gap-1 rounded-2xl border border-warm-300 bg-white p-3 shadow-xs">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 pt-1 text-xs text-warm-700">
+              <div className="flex flex-col items-start gap-0.5 sm:gap-1 rounded-2xl border border-warm-300 bg-white p-2.5 sm:p-3 shadow-xs">
                 <Zap className="h-4 w-4 text-terracotta-500" />
-                <span className="font-semibold text-warm-900">10s Claim</span>
-                <span className="text-[11px] text-warm-600">No app needed</span>
+                <span className="font-semibold text-warm-900 text-[11px] sm:text-xs">10s Claim</span>
+                <span className="text-[10px] sm:text-[11px] text-warm-600">No app</span>
               </div>
-              <div className="flex flex-col items-start gap-1 rounded-2xl border border-warm-300 bg-white p-3 shadow-xs">
+              <div className="flex flex-col items-start gap-0.5 sm:gap-1 rounded-2xl border border-warm-300 bg-white p-2.5 sm:p-3 shadow-xs">
                 <Tag className="h-4 w-4 text-terracotta-500" />
-                <span className="font-semibold text-warm-900">Flat ₹150 OFF</span>
-                <span className="text-[11px] text-warm-600">Min. order ₹300</span>
+                <span className="font-semibold text-warm-900 text-[11px] sm:text-xs">₹150 OFF</span>
+                <span className="text-[10px] sm:text-[11px] text-warm-600">Min. ₹300</span>
               </div>
-              <div className="flex flex-col items-start gap-1 rounded-2xl border border-warm-300 bg-white p-3 shadow-xs">
+              <div className="flex flex-col items-start gap-0.5 sm:gap-1 rounded-2xl border border-warm-300 bg-white p-2.5 sm:p-3 shadow-xs">
                 <Clock className="h-4 w-4 text-terracotta-500" />
-                <span className="font-semibold text-warm-900">14 Days</span>
-                <span className="text-[11px] text-warm-600">Pass validity</span>
+                <span className="font-semibold text-warm-900 text-[11px] sm:text-xs">14 Days</span>
+                <span className="text-[10px] sm:text-[11px] text-warm-600">Valid</span>
               </div>
             </div>
 
             {/* CTA & Trust note */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2">
               <button
                 onClick={onOpenClaim}
-                className="group relative inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-2xl bg-warm-900 px-8 py-4 text-base font-semibold text-warm-100 shadow-lg shadow-warm-900/15 transition-all hover:bg-warm-800 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:ring-4 focus:ring-terracotta-500/30"
+                className="group relative inline-flex w-full sm:w-auto cursor-pointer items-center justify-center gap-2.5 rounded-2xl bg-warm-900 px-8 py-4 text-base font-semibold text-warm-100 shadow-lg shadow-warm-900/15 transition-all hover:bg-warm-800 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:ring-4 focus:ring-terracotta-500/30"
               >
                 <Sparkles className="h-5 w-5 text-terracotta-500 transition-transform group-hover:rotate-12" />
                 <span>Claim ₹150 OFF</span>
               </button>
 
-              <div className="flex items-center gap-1.5 text-xs text-warm-600">
+              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-warm-600">
                 <ShieldCheck className="h-4 w-4 text-terracotta-500" />
                 <span>Zero spam • Instant digital pass</span>
               </div>

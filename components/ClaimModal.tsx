@@ -215,7 +215,7 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
     >
       <div
         ref={modalRef}
-        className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-warm-300 bg-white p-6 sm:p-8 shadow-2xl animate-fade-in-scale max-h-[92vh] overflow-y-auto"
+        className="relative w-full max-w-lg rounded-3xl border border-warm-300 bg-white p-5 sm:p-8 shadow-2xl animate-fade-in-scale max-h-[92vh] overflow-y-auto"
       >
         {/* Top Accent Gradient Line */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r from-terracotta-500 via-terracotta-600 to-warm-900" />
@@ -230,77 +230,77 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
         </button>
 
         {/* Modal Brand Header */}
-        <div className="flex items-center gap-3 mb-6 pr-8">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-warm-900 text-warm-100 shadow-xs">
-            <Coffee className="h-5 w-5 text-terracotta-500" />
+        <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-6 pr-8">
+          <div className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl bg-warm-900 text-warm-100 shadow-xs">
+            <Coffee className="h-4 w-4 sm:h-5 sm:w-5 text-terracotta-500" />
           </div>
           <div>
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-warm-200/80 px-2.5 py-0.5 text-[11px] font-semibold text-terracotta-600">
-              <Sparkles className="h-3 w-3" />
+            <div className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full bg-warm-200/80 px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold text-terracotta-600">
+              <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
               <span>In-Cafe Perk</span>
             </div>
             <h2
               id="modal-claim-heading"
-              className="font-serif text-2xl sm:text-3xl font-bold text-warm-900 leading-tight mt-0.5"
+              className="font-serif text-lg sm:text-2xl font-bold text-warm-900 leading-tight"
             >
-              {status === "success" ? "Your Voucher is Ready!" : "Get ₹150 OFF Voucher"}
+              {status === "success" ? "Voucher Ready! 🎉" : "Claim ₹150 OFF"}
             </h2>
           </div>
         </div>
 
         {/* SUCCESS STATE: VOUCHER PASS */}
         {status === "success" && claimData && (
-          <div className="space-y-5 animate-fade-in-scale" role="region" aria-label="Generated Voucher">
+          <div className="space-y-3 sm:space-y-4 animate-fade-in-scale" role="region" aria-label="Generated Voucher">
             {/* Ticket Pass Container */}
-            <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-terracotta-500/40 bg-gradient-to-b from-warm-100 to-warm-50 p-5 shadow-inner">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-terracotta-500/40 bg-gradient-to-b from-warm-100 to-warm-50 p-3.5 sm:p-5 shadow-inner">
 
               {/* Ticket Top Info */}
-              <div className="flex items-start justify-between border-b border-warm-300 pb-3">
-                <div>
-                  <span className="text-[10px] font-bold tracking-wider text-terracotta-500 uppercase">
+              <div className="flex items-start justify-between border-b border-warm-300 pb-2.5 sm:pb-3 gap-2">
+                <div className="min-w-0">
+                  <span className="text-[9px] sm:text-[10px] font-bold tracking-wider text-terracotta-500 uppercase">
                     Official Pass
                   </span>
-                  <h3 className="font-serif text-xl font-bold text-warm-900">
+                  <h3 className="font-serif text-base sm:text-xl font-bold text-warm-900 leading-snug">
                     Flat ₹150 OFF
                   </h3>
-                  <p className="text-xs text-warm-600">
-                    Morrow Cafe • Sector 104, Noida
+                  <p className="text-[10px] sm:text-[11px] text-warm-600 truncate">
+                    Morrow Cafe · Sector 104, Noida
                   </p>
                 </div>
-                <div className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[10px] font-bold text-emerald-800">
-                  Ready to Use
+                <div className="shrink-0 rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 sm:py-1 text-[10px] font-bold text-emerald-800 whitespace-nowrap">
+                  ✓ Ready
                 </div>
               </div>
 
               {/* Code Box */}
-              <div className="my-4 rounded-2xl bg-white border border-warm-300 p-4 text-center shadow-xs">
-                <span className="text-[11px] font-semibold text-warm-600 uppercase tracking-wider block mb-1">
+              <div className="my-2.5 sm:my-3.5 rounded-xl sm:rounded-2xl bg-white border border-warm-300 p-2.5 sm:p-3.5 text-center shadow-xs">
+                <span className="text-[10px] sm:text-[11px] font-semibold text-warm-600 uppercase tracking-wider block mb-0.5 sm:mb-1">
                   Your Voucher Code
                 </span>
                 <div className="flex items-center justify-center gap-2">
                   <span
-                    className="font-mono text-2xl sm:text-3xl font-bold tracking-widest text-warm-900 select-all"
+                    className="font-mono text-xl sm:text-2xl md:text-3xl font-bold tracking-widest text-warm-900 select-all break-all"
                     aria-label={`Claim code: ${claimData.code}`}
                   >
                     {claimData.code}
                   </span>
                 </div>
 
-                <div className="mt-3 flex justify-center">
+                <div className="mt-2 sm:mt-2.5 flex justify-center">
                   <button
                     onClick={copyClaimCode}
-                    className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-warm-900 px-5 py-2.5 text-xs font-semibold text-warm-100 transition hover:bg-warm-800 active:scale-95 focus:ring-2 focus:ring-terracotta-500 shadow-sm"
+                    className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl bg-warm-900 px-4 py-2 text-xs font-semibold text-warm-100 transition hover:bg-warm-800 active:scale-95 focus:ring-2 focus:ring-terracotta-500 shadow-sm"
                     aria-label="Copy voucher code to clipboard"
                   >
                     {copied ? (
                       <>
                         <Check className="h-3.5 w-3.5 text-emerald-400" />
-                        <span className="text-emerald-300 font-semibold">Copied to Clipboard!</span>
+                        <span className="text-emerald-300 font-semibold text-[11px] sm:text-xs">Copied!</span>
                       </>
                     ) : (
                       <>
                         <Copy className="h-3.5 w-3.5 text-warm-100" />
-                        <span>Copy Code</span>
+                        <span className="text-[11px] sm:text-xs">Copy Code</span>
                       </>
                     )}
                   </button>
@@ -308,52 +308,52 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
               </div>
 
               {/* Details Grid */}
-              <div className="grid grid-cols-2 gap-2.5 pt-1 text-xs text-warm-700">
-                <div className="rounded-xl bg-white/80 p-2.5 border border-warm-200">
-                  <span className="block text-[10px] uppercase tracking-wider text-warm-600 font-medium">
+              <div className="grid grid-cols-2 gap-2 text-xs text-warm-700">
+                <div className="rounded-xl bg-white/80 p-2 border border-warm-200">
+                  <span className="block text-[9px] sm:text-[10px] uppercase tracking-wider text-warm-600 font-medium">
                     Claimed By
                   </span>
-                  <span className="font-semibold text-warm-900 truncate block">
+                  <span className="font-semibold text-warm-900 truncate block text-[11px] sm:text-xs">
                     {claimData.name}
                   </span>
                 </div>
 
-                <div className="rounded-xl bg-white/80 p-2.5 border border-warm-200">
-                  <span className="block text-[10px] uppercase tracking-wider text-warm-600 font-medium">
+                <div className="rounded-xl bg-white/80 p-2 border border-warm-200">
+                  <span className="block text-[9px] sm:text-[10px] uppercase tracking-wider text-warm-600 font-medium">
                     Valid Until
                   </span>
-                  <span className="font-semibold text-warm-900 flex items-center gap-1">
-                    <Calendar className="h-3 w-3 text-terracotta-500" />
-                    {claimData.expiresAt}
+                  <span className="font-semibold text-warm-900 flex items-center gap-1 text-[11px] sm:text-xs">
+                    <Calendar className="h-3 w-3 text-terracotta-500 shrink-0" />
+                    <span className="truncate">{claimData.expiresAt}</span>
                   </span>
                 </div>
               </div>
 
-              <div className="mt-3 border-t border-warm-300 pt-2.5 text-center">
-                <p className="text-[11px] text-warm-600">
-                  ⚡ Show this pass on your phone when paying at the billing counter.
+              <div className="mt-2 border-t border-warm-300 pt-2 text-center">
+                <p className="text-[10px] sm:text-[11px] text-warm-600">
+                  ⚡ Show this pass on your phone when paying at the counter.
                 </p>
               </div>
             </div>
 
             {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
+            <div className="flex items-center gap-2 pt-0.5">
               <a
                 href="https://maps.google.com/?q=Sector+104+Noida"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-warm-300 bg-warm-100 py-3 text-xs font-semibold text-warm-900 transition hover:bg-warm-200"
+                className="flex-1 inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-warm-300 bg-warm-100 py-2.5 text-xs font-semibold text-warm-900 transition hover:bg-warm-200 text-center"
               >
-                <MapPin className="h-3.5 w-3.5 text-terracotta-500" />
-                <span>Get Directions to Cafe</span>
+                <MapPin className="h-3.5 w-3.5 text-terracotta-500 shrink-0" />
+                <span className="truncate">Directions</span>
               </a>
 
               <button
                 onClick={resetForm}
-                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-transparent px-4 py-3 text-xs font-medium text-warm-600 transition hover:text-warm-900 hover:bg-warm-100"
+                className="inline-flex cursor-pointer items-center justify-center gap-1 rounded-xl border border-warm-200 bg-white px-3 py-2.5 text-xs font-medium text-warm-700 transition hover:text-warm-900 hover:bg-warm-100 whitespace-nowrap"
               >
-                <RotateCcw className="h-3.5 w-3.5" />
-                <span>Claim another</span>
+                <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+                <span>Reset</span>
               </button>
             </div>
           </div>
