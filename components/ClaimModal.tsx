@@ -15,6 +15,9 @@ import {
   ArrowRight,
   ShieldCheck,
   X,
+  Coffee,
+  User,
+  Phone as PhoneIcon,
 } from "lucide-react";
 
 interface ClaimResponse {
@@ -151,8 +154,8 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
         if (!prefersReducedMotion) {
           try {
             confetti({
-              particleCount: 80,
-              spread: 60,
+              particleCount: 90,
+              spread: 65,
               origin: { y: 0.5 },
               colors: ["#D96B27", "#1F1A17", "#E7DDD0", "#8E5B3E"],
             });
@@ -200,7 +203,7 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-warm-900/60 backdrop-blur-xs animate-fade-in-up"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-warm-900/60 backdrop-blur-sm animate-fade-in-up"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-claim-heading"
@@ -212,84 +215,87 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
     >
       <div
         ref={modalRef}
-        className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-warm-300 bg-white p-6 shadow-2xl sm:p-8 animate-fade-in-scale max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-warm-300 bg-white p-6 sm:p-8 shadow-2xl animate-fade-in-scale max-h-[92vh] overflow-y-auto"
       >
+        {/* Top Accent Gradient Line */}
+        <div className="absolute top-0 left-0 right-0 h-1.5 bg-linear-to-r from-terracotta-500 via-terracotta-600 to-warm-900" />
+
         {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-warm-100 text-warm-600 transition hover:bg-warm-200 hover:text-warm-900 focus:ring-2 focus:ring-terracotta-500"
           aria-label="Close claim portal dialog"
         >
-          <X className="h-5 w-5" />
+          <X className="h-4 w-4" />
         </button>
 
-        {/* Modal Header */}
-        <div className="text-center mb-6 pr-8">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-warm-100 border border-warm-300 px-3 py-1 text-xs font-medium text-warm-600 mb-2">
-            <Ticket className="h-3.5 w-3.5 text-terracotta-500" />
-            <span>Official Claim Portal</span>
+        {/* Modal Brand Header */}
+        <div className="flex items-center gap-3 mb-6 pr-8">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-warm-900 text-warm-100 shadow-xs">
+            <Coffee className="h-5 w-5 text-terracotta-500" />
           </div>
-          <h2
-            id="modal-claim-heading"
-            className="font-serif text-2xl sm:text-3xl font-semibold text-warm-900"
-          >
-            {status === "success"
-              ? "Your Voucher is Ready!"
-              : "Claim Your ₹150 OFF Voucher"}
-          </h2>
-          <p className="mt-1 text-xs sm:text-sm text-warm-700">
-            {status === "success"
-              ? "Present this code to your barista or cashier when billing."
-              : "Enter your name and phone number to get your coupon pass."}
-          </p>
+          <div>
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-warm-200/80 px-2.5 py-0.5 text-[11px] font-semibold text-terracotta-600">
+              <Sparkles className="h-3 w-3" />
+              <span>In-Cafe Perk</span>
+            </div>
+            <h2
+              id="modal-claim-heading"
+              className="font-serif text-2xl sm:text-3xl font-bold text-warm-900 leading-tight mt-0.5"
+            >
+              {status === "success" ? "Your Voucher is Ready!" : "Get ₹150 OFF Voucher"}
+            </h2>
+          </div>
         </div>
 
         {/* SUCCESS STATE: VOUCHER PASS */}
         {status === "success" && claimData && (
           <div className="space-y-5 animate-fade-in-scale" role="region" aria-label="Generated Voucher">
-            {/* Voucher Ticket UI */}
-            <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-terracotta-500/40 bg-warm-100 p-5 shadow-inner">
+            {/* Ticket Pass Container */}
+            <div className="relative overflow-hidden rounded-2xl border-2 border-dashed border-terracotta-500/40 bg-gradient-to-b from-warm-100 to-warm-50 p-5 shadow-inner">
+
+              {/* Ticket Top Info */}
               <div className="flex items-start justify-between border-b border-warm-300 pb-3">
                 <div>
                   <span className="text-[10px] font-bold tracking-wider text-terracotta-500 uppercase">
-                    In-Cafe Perk
+                    Official Pass
                   </span>
                   <h3 className="font-serif text-xl font-bold text-warm-900">
-                    ₹150 OFF Total Bill
+                    Flat ₹150 OFF
                   </h3>
                   <p className="text-xs text-warm-600">
                     Morrow Cafe • Sector 104, Noida
                   </p>
                 </div>
-                <div className="rounded-full bg-warm-900 px-2.5 py-0.5 text-[10px] font-semibold text-warm-100">
-                  Active
+                <div className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-[10px] font-bold text-emerald-800">
+                  Ready to Use
                 </div>
               </div>
 
-              {/* Claim Code Section */}
-              <div className="my-4 rounded-xl bg-white border border-warm-300 p-3.5 text-center shadow-xs">
-                <span className="text-xs font-medium text-warm-600 uppercase tracking-wider block mb-1">
+              {/* Code Box */}
+              <div className="my-4 rounded-2xl bg-white border border-warm-300 p-4 text-center shadow-xs">
+                <span className="text-[11px] font-semibold text-warm-600 uppercase tracking-wider block mb-1">
                   Your Voucher Code
                 </span>
                 <div className="flex items-center justify-center gap-2">
                   <span
-                    className="font-mono text-2xl font-bold tracking-widest text-warm-900"
+                    className="font-mono text-2xl sm:text-3xl font-bold tracking-widest text-warm-900 select-all"
                     aria-label={`Claim code: ${claimData.code}`}
                   >
                     {claimData.code}
                   </span>
                 </div>
 
-                <div className="mt-2.5 flex justify-center">
+                <div className="mt-3 flex justify-center">
                   <button
                     onClick={copyClaimCode}
-                    className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-warm-900 px-4 py-2 text-xs font-semibold text-warm-100 transition hover:bg-warm-800 active:scale-95 focus:ring-2 focus:ring-terracotta-500"
+                    className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-warm-900 px-5 py-2.5 text-xs font-semibold text-warm-100 transition hover:bg-warm-800 active:scale-95 focus:ring-2 focus:ring-terracotta-500 shadow-sm"
                     aria-label="Copy voucher code to clipboard"
                   >
                     {copied ? (
                       <>
-                        <Check className="h-3.5 w-3.5 text-green-400" />
-                        <span className="text-green-300">Copied to Clipboard!</span>
+                        <Check className="h-3.5 w-3.5 text-emerald-400" />
+                        <span className="text-emerald-300 font-semibold">Copied to Clipboard!</span>
                       </>
                     ) : (
                       <>
@@ -301,50 +307,50 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
                 </div>
               </div>
 
-              {/* Pass Meta Details */}
+              {/* Details Grid */}
               <div className="grid grid-cols-2 gap-2.5 pt-1 text-xs text-warm-700">
-                <div className="rounded-lg bg-white/70 p-2.5 border border-warm-200">
+                <div className="rounded-xl bg-white/80 p-2.5 border border-warm-200">
                   <span className="block text-[10px] uppercase tracking-wider text-warm-600 font-medium">
                     Claimed By
                   </span>
-                  <span className="font-medium text-warm-900 truncate block">
+                  <span className="font-semibold text-warm-900 truncate block">
                     {claimData.name}
                   </span>
                 </div>
 
-                <div className="rounded-lg bg-white/70 p-2.5 border border-warm-200">
+                <div className="rounded-xl bg-white/80 p-2.5 border border-warm-200">
                   <span className="block text-[10px] uppercase tracking-wider text-warm-600 font-medium">
                     Valid Until
                   </span>
-                  <span className="font-medium text-warm-900 flex items-center gap-1">
+                  <span className="font-semibold text-warm-900 flex items-center gap-1">
                     <Calendar className="h-3 w-3 text-terracotta-500" />
                     {claimData.expiresAt}
                   </span>
                 </div>
               </div>
 
-              <div className="mt-3 border-t border-warm-300 pt-2 text-center">
+              <div className="mt-3 border-t border-warm-300 pt-2.5 text-center">
                 <p className="text-[11px] text-warm-600">
-                  Show this code when placing your order or asking for the check.
+                  ⚡ Show this pass on your phone when paying at the billing counter.
                 </p>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2.5">
+            {/* Actions */}
+            <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
               <a
                 href="https://maps.google.com/?q=Sector+104+Noida"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-warm-300 bg-warm-100 py-2.5 text-xs font-semibold text-warm-900 transition hover:bg-warm-200"
+                className="flex-1 inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-warm-300 bg-warm-100 py-3 text-xs font-semibold text-warm-900 transition hover:bg-warm-200"
               >
                 <MapPin className="h-3.5 w-3.5 text-terracotta-500" />
-                <span>Get Directions</span>
+                <span>Get Directions to Cafe</span>
               </a>
 
               <button
                 onClick={resetForm}
-                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-transparent px-3 py-2.5 text-xs font-medium text-warm-600 transition hover:text-warm-900 hover:bg-warm-100"
+                className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-xl border border-transparent px-4 py-3 text-xs font-medium text-warm-600 transition hover:text-warm-900 hover:bg-warm-100"
               >
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>Claim another</span>
@@ -381,27 +387,31 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
                 htmlFor="modal-customer-name"
                 className="block text-xs font-semibold text-warm-900 uppercase tracking-wider"
               >
-                Full Name <span className="text-red-500">*</span>
+                Your Name <span className="text-red-500">*</span>
               </label>
-              <input
-                id="modal-customer-name"
-                name="name"
-                type="text"
-                required
-                autoComplete="name"
-                placeholder="e.g. Rahul Sharma"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-                disabled={status === "loading"}
-                aria-invalid={!!nameError}
-                aria-describedby={nameError ? "modal-name-error" : undefined}
-                className={`w-full rounded-xl border bg-warm-100 px-4 py-3 text-sm text-warm-900 placeholder:text-warm-500 transition outline-hidden focus:bg-white ${
-                  nameError
-                    ? "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200"
-                    : "border-warm-300 focus:border-warm-900 focus:ring-2 focus:ring-warm-900/10"
-                }`}
-              />
+              <div className="relative flex items-center">
+                <span className="absolute left-3.5 text-warm-500 pointer-events-none">
+                  <User className="h-4 w-4" />
+                </span>
+                <input
+                  id="modal-customer-name"
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  placeholder="e.g. Rahul Sharma"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+                  disabled={status === "loading"}
+                  aria-invalid={!!nameError}
+                  aria-describedby={nameError ? "modal-name-error" : undefined}
+                  className={`w-full rounded-2xl border bg-warm-100 pl-10 pr-4 py-3.5 text-sm text-warm-900 placeholder:text-warm-500 transition outline-hidden focus:bg-white ${nameError
+                      ? "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                      : "border-warm-300 focus:border-warm-900 focus:ring-2 focus:ring-warm-900/10"
+                    }`}
+                />
+              </div>
               {nameError && (
                 <p
                   id="modal-name-error"
@@ -423,8 +433,9 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
                 Phone Number <span className="text-red-500">*</span>
               </label>
               <div className="relative flex items-center">
-                <span className="absolute left-4 text-sm font-semibold text-warm-600 pointer-events-none select-none">
-                  +91
+                <span className="absolute left-3.5 flex items-center gap-1 text-sm font-semibold text-warm-700 pointer-events-none select-none">
+                  <PhoneIcon className="h-3.5 w-3.5 text-warm-500" />
+                  <span>+91</span>
                 </span>
                 <input
                   id="modal-customer-phone"
@@ -440,11 +451,10 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
                   disabled={status === "loading"}
                   aria-invalid={!!phoneError}
                   aria-describedby={phoneError ? "modal-phone-error" : undefined}
-                  className={`w-full rounded-xl border bg-warm-100 pl-14 pr-4 py-3 text-sm text-warm-900 placeholder:text-warm-500 transition outline-hidden focus:bg-white font-medium ${
-                    phoneError
+                  className={`w-full rounded-2xl border bg-warm-100 pl-16 pr-4 py-3.5 text-sm text-warm-900 placeholder:text-warm-500 transition outline-hidden focus:bg-white font-medium ${phoneError
                       ? "border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200"
                       : "border-warm-300 focus:border-warm-900 focus:ring-2 focus:ring-warm-900/10"
-                  }`}
+                    }`}
                 />
               </div>
               {phoneError ? (
@@ -458,7 +468,7 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
                 </p>
               ) : (
                 <p className="text-[11px] text-warm-600 mt-1">
-                  10-digit number used to issue your single-use voucher pass.
+                  10-digit number used to link your single-use voucher pass.
                 </p>
               )}
             </div>
@@ -468,7 +478,7 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="group relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-warm-900 py-3.5 text-sm sm:text-base font-semibold text-warm-100 shadow-md transition-all hover:bg-warm-800 hover:shadow-lg active:scale-[0.99] disabled:opacity-75 disabled:cursor-not-allowed focus:ring-4 focus:ring-terracotta-500/30"
+                className="group relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-warm-900 py-4 text-sm sm:text-base font-semibold text-warm-100 shadow-lg shadow-warm-900/15 transition-all hover:bg-warm-800 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] disabled:opacity-75 disabled:cursor-not-allowed focus:ring-4 focus:ring-terracotta-500/30"
               >
                 {status === "loading" ? (
                   <>
@@ -486,7 +496,7 @@ export function ClaimModal({ isOpen, onClose }: ClaimModalProps) {
             </div>
 
             {/* Security Notice */}
-            <div className="flex items-center justify-center gap-1.5 text-center text-[11px] text-warm-600">
+            <div className="flex items-center justify-center gap-1.5 text-center text-[11px] text-warm-600 pt-1">
               <ShieldCheck className="h-3.5 w-3.5 text-warm-700" />
               <span>Instant voucher generation • Single-use per customer</span>
             </div>
