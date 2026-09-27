@@ -5,39 +5,39 @@ import { Coffee, Flame, Heart, Wifi } from "lucide-react";
 export function AtmosphereSection() {
   const highlights = [
     {
-      icon: <Coffee className="h-5 w-5 text-[#D96B27]" />,
+      icon: <Coffee className="h-5 w-5 text-terracotta-500" />,
       title: "Specialty Micro-Lots",
       desc: "Ethically sourced Indian Arabica beans roasted in small batches for distinct flavor clarity.",
     },
     {
-      icon: <Flame className="h-5 w-5 text-[#D96B27]" />,
+      icon: <Flame className="h-5 w-5 text-terracotta-500" />,
       title: "Wild Sourdough & Bakes",
       desc: "Slow-fermented artisan sourdough breads, butter croissants, and seasonal kitchen brunch.",
     },
     {
-      icon: <Wifi className="h-5 w-5 text-[#D96B27]" />,
+      icon: <Wifi className="h-5 w-5 text-terracotta-500" />,
       title: "Dedicated Work Nooks",
       desc: "Quiet corners with dedicated power outlets and high-speed Wi-Fi for your deep work sessions.",
     },
     {
-      icon: <Heart className="h-5 w-5 text-[#D96B27]" />,
+      icon: <Heart className="h-5 w-5 text-terracotta-500" />,
       title: "Pet & Community Friendly",
       desc: "A warm, inclusive space welcoming your furry friends and weekend coffee meetups.",
     },
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 border-t border-[#EAE3D8] bg-[#FAF7F2]">
+    <section className="py-12 sm:py-16 lg:py-20 border-t border-warm-200 bg-warm-100">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}
         <div className="max-w-xl">
-          <p className="text-xs font-semibold tracking-wider text-[#D96B27] uppercase">
+          <p className="text-xs font-semibold tracking-wider text-terracotta-500 uppercase">
             Craft & Philosophy
           </p>
-          <h2 className="mt-1 font-serif text-3xl font-semibold tracking-tight text-[#1F1A17] sm:text-4xl">
+          <h2 className="mt-1 font-serif text-3xl font-semibold tracking-tight text-warm-900 sm:text-4xl">
             More than just coffee.
           </h2>
-          <p className="mt-3 text-sm text-[#554739] sm:text-base leading-relaxed">
+          <p className="mt-3 text-sm text-warm-700 sm:text-base leading-relaxed">
             Morrow Cafe was designed as a slow-living haven in the heart of Sector 104, Noida. Every pour-over is weighed, every pastry proofed with care.
           </p>
         </div>
@@ -45,7 +45,7 @@ export function AtmosphereSection() {
         {/* Visual Dual-Image Grid */}
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:gap-8">
           {/* Detail Image Card */}
-          <div className="group relative overflow-hidden rounded-3xl border border-[#E7DDD0] bg-white p-3 shadow-md">
+          <div className="group relative overflow-hidden rounded-3xl border border-warm-300 bg-white p-3 shadow-md">
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl sm:aspect-3/2">
               <Image
                 src="/images/morrow-detail.webp"
@@ -57,17 +57,17 @@ export function AtmosphereSection() {
               />
             </div>
             <div className="p-3">
-              <p className="font-serif text-base font-semibold text-[#1F1A17]">
+              <p className="font-serif text-base font-semibold text-warm-900">
                 Single-Origin Manual Brews
               </p>
-              <p className="text-xs text-[#7A6956] mt-0.5">
+              <p className="text-xs text-warm-700 mt-0.5">
                 V60, Aeropress & Japanese Cold Brew crafted to order.
               </p>
             </div>
           </div>
 
           {/* Hero Ambience Card */}
-          <div className="group relative overflow-hidden rounded-3xl border border-[#E7DDD0] bg-white p-3 shadow-md">
+          <div className="group relative overflow-hidden rounded-3xl border border-warm-300 bg-white p-3 shadow-md">
             <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl sm:aspect-3/2">
               <Image
                 src="/images/morrow-hero.webp"
@@ -79,10 +79,10 @@ export function AtmosphereSection() {
               />
             </div>
             <div className="p-3">
-              <p className="font-serif text-base font-semibold text-[#1F1A17]">
+              <p className="font-serif text-base font-semibold text-warm-900">
                 Warm Minimalist Sanctuary
               </p>
-              <p className="text-xs text-[#7A6956] mt-0.5">
+              <p className="text-xs text-warm-700 mt-0.5">
                 Acoustic treatment, natural oak wood, and calm lighting.
               </p>
             </div>
@@ -94,15 +94,15 @@ export function AtmosphereSection() {
           {highlights.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-2xl border border-[#E7DDD0] bg-white/70 p-5 shadow-xs transition hover:bg-white hover:shadow-md"
+              className="rounded-2xl border border-warm-300 bg-white/70 p-5 shadow-xs transition hover:bg-white hover:shadow-md"
             >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#F3ECE1]">
+              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-warm-200">
                 {item.icon}
               </div>
-              <h3 className="font-serif text-base font-semibold text-[#1F1A17]">
+              <h3 className="font-serif text-base font-semibold text-warm-900">
                 {item.title}
               </h3>
-              <p className="mt-1.5 text-xs text-[#7A6956] leading-relaxed">
+              <p className="mt-1.5 text-xs text-warm-600 leading-relaxed">
                 {item.desc}
               </p>
             </div>

@@ -37,7 +37,7 @@ const INVALID_PATTERNS = [
 
 export async function POST(request: Request) {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     let body: any;
     try {
@@ -96,25 +96,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check for repetitive bogus numbers (e.g. 0000000000, 9999999999)
-    if (
-      sanitizedPhone === "0000000000" ||
-      sanitizedPhone === "1111111111" ||
-      sanitizedPhone === "9999999999" ||
-      sanitizedPhone === "1234567890"
-    ) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "This mobile number appears invalid. Please enter your real number to receive the offer.",
-        },
-        { status: 422 }
-      );
-    }
 
-    // Duplicate Check & Idempotency:
-    // If the customer already claimed the voucher with this phone number, return their existing claim code!
-    // This is excellent UX because if they accidentally re-submit or refresh, they don't lose their voucher.
     if (claimedPhones.has(sanitizedPhone)) {
       const existing = claimedPhones.get(sanitizedPhone)!;
       return NextResponse.json(
@@ -130,7 +112,6 @@ export async function POST(request: Request) {
 
     // Generate fresh claim code
     let claimCode = generateClaimCode();
-    // Ensure uniqueness
     let attempts = 0;
     const existingCodes = new Set(Array.from(claimedPhones.values()).map((v) => v.claimCode));
     while (existingCodes.has(claimCode) && attempts < 10) {

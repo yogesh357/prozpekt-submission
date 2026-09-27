@@ -9,14 +9,14 @@ import { PageLoader } from "@/components/PageLoader";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#FAF7F2] text-[#1F1A17]">
+    <div className="flex min-h-screen flex-col bg-warm-100 text-warm-900">
       {/* Initial Page Loading Transition */}
       <PageLoader />
 
       {/* Skip to Main content for keyboard accessibility */}
       <a
         href="#claim-section"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-xl focus:bg-[#1F1A17] focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:text-[#FAF7F2] focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-xl focus:bg-warm-900 focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:text-warm-100 focus:shadow-lg"
       >
         Skip directly to claim form
       </a>

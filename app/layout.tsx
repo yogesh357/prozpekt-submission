@@ -78,7 +78,7 @@ export default function RootLayout({
       lang="en"
       className={`${jakartaSans.variable} ${newsreader.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#FAF7F2] text-[#1F1A17] font-sans selection:bg-[#E67E43]/20 selection:text-[#933D10] flex flex-col">
+      <body className="min-h-screen bg-warm-100 text-warm-900 font-sans selection:bg-warm-400/20 selection:text-warm-900 flex flex-col">
         {children}
       </body>
     </html>

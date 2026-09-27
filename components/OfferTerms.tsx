@@ -30,17 +30,17 @@ export function OfferTerms() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 bg-[#FAF7F2] border-t border-[#EAE3D8]">
+    <section className="py-12 sm:py-16 bg-warm-100 border-t border-warm-200">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#F3ECE1] px-3 py-1 text-xs font-medium text-[#7A6956] mb-2">
-            <HelpCircle className="h-3.5 w-3.5 text-[#D96B27]" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-warm-200 px-3 py-1 text-xs font-medium text-warm-600 mb-2">
+            <HelpCircle className="h-3.5 w-3.5 text-terracotta-500" />
             <span>Campaign FAQ & Terms</span>
           </div>
-          <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#1F1A17]">
+          <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-warm-900">
             Frequently Asked Questions
           </h2>
-          <p className="mt-1 text-xs sm:text-sm text-[#554739]">
+          <p className="mt-1 text-xs sm:text-sm text-warm-700">
             Everything you need to know about claiming and redeeming your ₹150 discount.
           </p>
         </div>
@@ -51,22 +51,23 @@ export function OfferTerms() {
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-2xl border border-[#E7DDD0] bg-white transition shadow-xs"
+                className="overflow-hidden rounded-2xl border border-warm-300 bg-white transition shadow-xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full cursor-pointer items-center justify-between p-4 sm:p-5 text-left text-sm font-semibold text-[#1F1A17] hover:bg-[#FAF7F2] transition"
+                  className="flex w-full cursor-pointer items-center justify-between p-4 sm:p-5 text-left text-sm font-semibold text-warm-900 hover:bg-warm-100 transition"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`h-4 w-4 shrink-0 text-[#7A6956] transition-transform duration-200 ${isOpen ? "rotate-180 text-[#D96B27]" : ""
-                      }`}
+                    className={`h-4 w-4 shrink-0 text-warm-600 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-terracotta-500" : ""
+                    }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="border-t border-[#F3ECE1] bg-[#FAF7F2]/60 px-4 py-3 sm:px-5 sm:py-4 text-xs sm:text-sm text-[#554739] leading-relaxed">
+                  <div className="border-t border-warm-200 bg-warm-100/60 px-4 py-3 sm:px-5 sm:py-4 text-xs sm:text-sm text-warm-700 leading-relaxed">
                     {faq.a}
                   </div>
                 )}
