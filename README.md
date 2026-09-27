@@ -5,7 +5,7 @@ A mobile-first, high-converting campaign landing experience built for **Morrow C
 ---
 
 ## 🚀 Live Demo & Repository
-- **Live URL**: *(Deploy to Vercel / Cloudflare Pages)*
+- **Live URL**: https://prozpekt.vercel.app/
 - **Repository**: https://github.com/yogesh357/prozpekt-submission
 
 ---
