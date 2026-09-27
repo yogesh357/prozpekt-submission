@@ -1,27 +1,23 @@
 import React from "react";
-import { MapPin, Clock, Phone, Navigation, Wifi, Car, Dog, Sparkles } from "lucide-react";
+import { MapPin, Clock, Phone, Navigation, Wifi, Car, Dog } from "lucide-react";
 
 export function LocationCard() {
   return (
     <section className="py-14 sm:py-20 bg-[#FAF7F2] border-t border-[#EAE3D8]">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-
+        
         {/* Main Elevated Card */}
         <div className="relative overflow-hidden rounded-3xl border border-[#E7DDD0] bg-white p-6 sm:p-10 shadow-xl">
           {/* Subtle warm accent top bar */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#D96B27] via-[#C2591A] to-[#1F1A17]" />
 
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-
+            
             {/* Location & Details Column */}
             <div className="lg:col-span-7 space-y-6">
-
+              
               <div>
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F3ECE1] px-3 py-1 text-xs font-semibold text-[#D96B27]">
-                    <MapPin className="h-3.5 w-3.5" />
-                    <span>Sector 104, Noida</span>
-                  </span>
+                <div className="flex items-center gap-2 mb-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-xs font-semibold text-emerald-800">
                     <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span>Open Today • 8 AM – 11 PM</span>
@@ -29,10 +25,10 @@ export function LocationCard() {
                 </div>
 
                 <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-[#1F1A17]">
-                  Morrow Cafe
+                  Morrow Café
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-[#554739] leading-relaxed">
-                  Located in the vibrant heart of Sector 104, Noida. Experience quiet artisanal dining, manual pour-overs, and fresh sourdough bakery.
+                  Experience quiet artisanal dining, manual pour-overs, and fresh sourdough bakery.
                 </p>
               </div>
 
@@ -41,7 +37,7 @@ export function LocationCard() {
                 <div className="rounded-2xl border border-[#E7DDD0] bg-[#FAF7F2] p-4">
                   <div className="flex items-center gap-2 text-[#7A6956] font-medium mb-1">
                     <MapPin className="h-4 w-4 text-[#D96B27]" />
-                    <span>Cafe Location</span>
+                    <span>Location</span>
                   </div>
                   <p className="font-semibold text-[#1F1A17]">
                     Plot 14, Main Market, Sector 104, Noida, UP 201304
@@ -97,15 +93,11 @@ export function LocationCard() {
 
             {/* Right Side Visual Showcase */}
             <div className="lg:col-span-5">
-              <div className="relative overflow-hidden rounded-3xl border border-[#E7DDD0] bg-gradient-to-br from-[#F3ECE1] to-[#FAF7F2] p-6 text-center shadow-inner">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1F1A17] text-[#FAF7F2] shadow-sm">
-                  <Sparkles className="h-7 w-7 text-[#D96B27]" />
-                </div>
-
-                <h3 className="font-serif text-xl font-bold text-[#1F1A17]">
+              <div className="relative overflow-hidden rounded-3xl border border-[#E7DDD0] bg-gradient-to-br from-[#F3ECE1] to-[#FAF7F2] p-8 text-center shadow-inner">
+                <h3 className="font-serif text-2xl font-bold text-[#1F1A17]">
                   Instant Billing Perk
                 </h3>
-                <p className="mt-1 text-xs text-[#7A6956]">
+                <p className="mt-2 text-xs sm:text-sm text-[#7A6956]">
                   Show your active coupon code on this page when paying at the register.
                 </p>
 

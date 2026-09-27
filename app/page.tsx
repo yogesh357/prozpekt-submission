@@ -5,11 +5,14 @@ import { AtmosphereSection } from "@/components/AtmosphereSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { OfferTerms } from "@/components/OfferTerms";
 import { LocationCard } from "@/components/LocationCard";
-import { Footer } from "@/components/Footer";
+import { PageLoader } from "@/components/PageLoader";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-[#FAF7F2] text-[#1F1A17]">
+      {/* Initial Page Loading Transition */}
+      <PageLoader />
+
       {/* Skip to Main content for keyboard accessibility */}
       <a
         href="#claim-section"
@@ -39,8 +42,6 @@ export default function Home() {
         {/* Location & Visiting Hours */}
         <LocationCard />
       </main>
-
-      <Footer />
     </div>
   );
 }
