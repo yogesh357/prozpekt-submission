@@ -1,6 +1,9 @@
+"use client";
+
+import React, { useState } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { ClaimModule } from "@/components/ClaimModule";
+import { ClaimModal } from "@/components/ClaimModal";
 import { AtmosphereSection } from "@/components/AtmosphereSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { OfferTerms } from "@/components/OfferTerms";
@@ -8,27 +11,25 @@ import { LocationCard } from "@/components/LocationCard";
 import { PageLoader } from "@/components/PageLoader";
 
 export default function Home() {
+  const [isClaimModalOpen, setIsClaimModalOpen] = useState(false);
+
+  const openClaimModal = () => setIsClaimModalOpen(true);
+  const closeClaimModal = () => setIsClaimModalOpen(false);
+
   return (
     <div className="flex min-h-screen flex-col bg-warm-100 text-warm-900">
       {/* Initial Page Loading Transition */}
       <PageLoader />
 
-      {/* Skip to Main content for keyboard accessibility */}
-      <a
-        href="#claim-section"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-xl focus:bg-warm-900 focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:text-warm-100 focus:shadow-lg"
-      >
-        Skip directly to claim form
-      </a>
+      {/* Popup Claim Modal */}
+      <ClaimModal isOpen={isClaimModalOpen} onClose={closeClaimModal} />
 
-      <Header />
+      {/* Header with Claim Trigger */}
+      <Header onOpenClaim={openClaimModal} />
 
       <main id="main-content" className="flex-1">
         {/* Above-the-fold Hero */}
-        <Hero />
-
-        {/* Claim Form & Interactive Digital Pass Section */}
-        <ClaimModule />
+        <Hero onOpenClaim={openClaimModal} />
 
         {/* Atmosphere & Specialty Roasts Showcase */}
         <AtmosphereSection />

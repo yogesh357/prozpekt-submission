@@ -3,18 +3,11 @@
 import React from "react";
 import { Coffee, Sparkles } from "lucide-react";
 
-export function Header() {
-  const scrollToClaim = () => {
-    const el = document.getElementById("claim-section");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-      const nameInput = document.getElementById("customer-name");
-      if (nameInput) {
-        setTimeout(() => nameInput.focus(), 600);
-      }
-    }
-  };
+interface HeaderProps {
+  onOpenClaim?: () => void;
+}
 
+export function Header({ onOpenClaim }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-warm-200 bg-warm-100/90 backdrop-blur-md transition-all">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
@@ -28,11 +21,11 @@ export function Header() {
           </span>
         </div>
 
-        {/* Quick Action Button */}
+        {/* Quick Action Button - Opens Claim Modal */}
         <button
-          onClick={scrollToClaim}
+          onClick={onOpenClaim}
           className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-warm-900 px-4 py-2 text-xs font-semibold text-warm-100 shadow-sm transition hover:bg-warm-800 hover:shadow active:scale-95 focus:ring-2 focus:ring-terracotta-500 focus:ring-offset-2 sm:text-sm"
-          aria-label="Scroll to claim offer form"
+          aria-label="Open claim offer popup"
         >
           <Sparkles className="h-3.5 w-3.5 text-terracotta-500" />
           <span>Claim ₹150 OFF</span>

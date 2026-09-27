@@ -2,20 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowDown, Sparkles, Clock, ShieldCheck, Zap, Tag } from "lucide-react";
+import { Sparkles, Clock, ShieldCheck, Zap, Tag } from "lucide-react";
 
-export function Hero() {
-  const scrollToClaim = () => {
-    const el = document.getElementById("claim-section");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-      const nameInput = document.getElementById("customer-name");
-      if (nameInput) {
-        setTimeout(() => nameInput.focus(), 600);
-      }
-    }
-  };
+interface HeroProps {
+  onOpenClaim?: () => void;
+}
 
+export function Hero({ onOpenClaim }: HeroProps) {
   return (
     <section className="relative overflow-hidden pt-8 pb-12 sm:pt-14 sm:pb-16 lg:pb-20">
       {/* Decorative ambient background blur */}
@@ -23,10 +16,10 @@ export function Hero() {
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
-
+          
           {/* Main Content Column */}
           <div className="lg:col-span-7 space-y-6">
-
+            
             {/* Context Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-warm-300 bg-warm-200 px-3.5 py-1 text-xs font-semibold text-warm-700 shadow-xs">
               <span className="relative flex h-2 w-2">
@@ -70,12 +63,11 @@ export function Hero() {
             {/* CTA & Trust note */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
               <button
-                onClick={scrollToClaim}
+                onClick={onOpenClaim}
                 className="group relative inline-flex cursor-pointer items-center justify-center gap-2.5 rounded-2xl bg-warm-900 px-8 py-4 text-base font-semibold text-warm-100 shadow-lg shadow-warm-900/15 transition-all hover:bg-warm-800 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:ring-4 focus:ring-terracotta-500/30"
               >
                 <Sparkles className="h-5 w-5 text-terracotta-500 transition-transform group-hover:rotate-12" />
                 <span>Claim ₹150 OFF</span>
-                <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
               </button>
 
               <div className="flex items-center gap-1.5 text-xs text-warm-600">
@@ -100,8 +92,11 @@ export function Hero() {
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-warm-900/80 via-transparent to-transparent" />
 
-                {/* Floating coupon card tag */}
-                <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/20 bg-white/90 p-3.5 backdrop-blur-md shadow-lg">
+                {/* Floating coupon card tag that also opens the modal */}
+                <button
+                  onClick={onOpenClaim}
+                  className="absolute bottom-4 left-4 right-4 cursor-pointer text-left rounded-2xl border border-white/20 bg-white/90 p-3.5 backdrop-blur-md shadow-lg transition hover:bg-white"
+                >
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-[10px] font-bold tracking-wider text-terracotta-500 uppercase">
@@ -111,14 +106,14 @@ export function Hero() {
                         ₹150 OFF Voucher
                       </p>
                       <p className="text-[11px] text-warm-600">
-                        Show code at checkout counter
+                        Tap here to claim instantly
                       </p>
                     </div>
                     <span className="rounded-xl bg-warm-900 px-3 py-1.5 text-xs font-semibold text-warm-100">
-                      Claim Below ↓
+                      Claim Now →
                     </span>
                   </div>
-                </div>
+                </button>
               </div>
             </div>
           </div>
